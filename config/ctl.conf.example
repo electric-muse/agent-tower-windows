@@ -1,0 +1,77 @@
+# agent-tower 遥控配置 (key=value, 改动热生效)
+# 本文件是从 ctl.conf.example 复制的模板; 复制为 ctl.conf 后按需修改
+
+# 授权用户 open_id 白名单(逗号分隔)。留空=拒绝一切命令。
+# 首次使用: 启动后在群里发 #help, 从 logs/ctl.log 里找到自己的 open_id 填入
+allow_ou=
+
+# 允许 #new 起任务的工作目录根(逗号分隔, 任务目录须在其下)
+work_roots=/tmp
+
+# 允许飞书接管的已有本机 Codex 桌面会话 UUID（逗号分隔）。
+# 留空时仅允许工作目录位于 work_roots 的桌面会话。
+attach_sessions=
+
+# 允许从飞书控制的现有 DSH 桌面会话，使用完整 session-UUID；不继承 work_roots。
+dsh_attach_sessions=
+# JSON 对象：固定短名称映射到上面两种已授权会话 ID。
+desktop_aliases={}
+
+# 默认模型。留空 = 用 ~/.codex/config.toml 的默认模型; 也可显式指定
+default_model=
+
+# codex 任务的兜底沙箱(仅 权限=safe 时生效; 默认权限看 default_perm)
+sandbox=workspace-write
+
+# 并发任务上限
+max_jobs=6
+
+# 频控: rate_win 秒内每用户最多 rate_n 条命令
+rate_n=10
+rate_win=60
+# 外部命令最多排队数量；系统内部续跑消息不受该入口限制
+command_queue_max=100
+
+# 补充模型白名单(#models 追加显示, 逗号分隔; 主清单自动读 codex 的 model_catalog_json)
+models=
+
+# Agent CLI 路径(非默认安装位才需要改)
+#codex_bin=/opt/homebrew/bin/codex
+#claude_bin=/Users/you/.npm-global/bin/claude
+#wcb_bin=/Applications/WorkBuddy.app/Contents/Resources/app.asar.unpacked/cli/bin/codebuddy
+#qoder_bin=/Users/you/.npm-global/bin/qoderclicn
+
+# 单轮任务最长运行分钟数, 超时 SIGINT+通知 (0=不限制)
+max_run_min=45
+
+# 任务默认权限: full=完全放开(单机自用推荐); 命令里带 权限=safe 降级沙箱
+default_perm=full
+
+# 自动收编: 检测到外部活跃会话(10min内有写入)自动建话题舱
+auto_watch=1
+auto_watch_min_kb=50
+# Harness 使用压缩后大小，门槛可单独调整
+dsh_auto_watch_min_kb=50
+auto_watch_max=3
+
+# 飞书标题（热加载）：只影响新建根卡、#title 刷新的根卡和后续播报；不回写历史消息。
+# 自定义标题优先于提示词；长度限制 8~80，默认 24；空/非法模板回退默认。
+# 模板变量：{icon} {jid} {title} {project} {agent}
+# “话题标题”指机器人任务根卡标题，不是修改飞书聊天名称。
+title_max_len=24
+topic_title_template={icon} {jid} · {title}
+stream_title_template={icon} {title} · {jid}
+
+# DeepSeek Harness CLI；未配置时从 PATH 或 ~/.npm-global/bin/dsh 发现。
+# dsh_bin=/absolute/path/to/dsh
+# launchd 不继承 shell PATH；Node.js 可选显式路径（空则自动发现）。
+# dsh_node_bin=/absolute/path/to/node
+# 可选复用已存在的本机配置补丁（含模型选择）；不复制凭据，不接受聊天覆盖。
+# 留空使用 headless 默认配置；改变模型供应方前请自行确认。
+# dsh_config_patch=/absolute/path/to/cordis.patch.yml
+
+# 历史数据保留：仅 #retention 预览并确认后生效，不后台自动删除。
+retention_job_days=30
+retention_failed_days=14
+# 任务根卡状态刷新最小间隔（秒，下限10；仅状态改变时更新）。
+status_card_gap=30

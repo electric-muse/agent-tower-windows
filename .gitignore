@@ -1,0 +1,19 @@
+# 虚拟环境
+.venv/
+.dsh-runtime/
+
+# 本机配置实例(入库的是同名 .example 模板; 实例含个人 open_id/路径/密钥)
+config/ctl.conf
+config/stream.conf
+config/feishu-app.json
+config/dsh-host.json
+state/.token-cache.json
+
+# 运行态(机器本地, 不入库)
+state/
+logs/
+launchd/*.plist
+__pycache__/
+*.pyc
+.DS_Store
+.omc/

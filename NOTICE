@@ -1,0 +1,112 @@
+Agent Tower Windows
+===================
+
+This product is based on Agent Tower (https://gitee.com/wowofighting/agent-tower),
+licensed under the Apache License, Version 2.0.
+
+The upstream LICENSE file is preserved unmodified in this repository.
+
+Modifications
+-------------
+
+Copyright 2026 june-zheng (https://gitee.com/june-zheng)
+
+This repository starts from the upstream public baseline commit
+22d90d012a39234b4d749162b962430c8a66e324 ("初始化 Agent Tower 开源源码").
+The upstream development history is not included here. The complete list of
+changes relative to that baseline is below; the authoritative form of this list
+is always `git diff --name-status 22d90d0 <this branch>` against the upstream
+repository.
+
+Added files
+~~~~~~~~~~~
+
+  NOTICE                                       this file
+  config/dsh-host.example.json                 DSH Host connection template
+  docs/testing/codex-auto-open-2026-11-18.md
+  docs/testing/desktop-control-2026-10-24.md
+  docs/testing/desktop-control-2026-11-16.md
+  docs/testing/desktop-image-card-2026-10-28.md
+  docs/testing/desktop-ui-reentry-2026-11-16.md
+  docs/testing/dsh-desktop-control-2026-11-16.md
+  docs/testing/feishu-image-delivery-2026-11-02.md
+  docs/testing/feishu-image-input-2026-11-16.md
+  docs/testing/feishu-richtext-input-2026-11-17.md
+  docs/testing/gitee-release-2026-11-21.md
+  docs/testing/watch-scope-windows-2026-11-02.md
+  scripts/dsh-host-export.mjs                  DSH Host connection export plugin
+  scripts/install-dsh-host-export.ps1
+  scripts/register-windows-autostart.ps1       optional logon startup
+  scripts/run-windows.ps1                      Windows daemon launcher
+  scripts/setup-windows.ps1                    Windows bootstrap
+  scripts/test_desktop_control.py
+  scripts/test_dsh_control.py
+  scripts/test_dsh_host_export.mjs
+  scripts/test_media.py
+  scripts/test_platform.py
+  scripts/test_windows_dsh.py
+  scripts/tower_desktop_control.py             Codex desktop session control
+  scripts/tower_dsh_control.py                 DSH desktop session control
+  scripts/tower_media.py
+  scripts/tower_platform.py                    platform abstraction
+
+Modified files
+~~~~~~~~~~~~~~
+
+  .gitignore                                   Windows runtime exclusions
+  README.md                                    platform status, upstream credit,
+                                               clone URL points to this repository
+  README.en.md                                 same, in English
+  config/ctl.conf.example                      desktop/DSH attach settings
+  config/feishu-app.example.json
+  config/stream.conf.example
+  scripts/test_delivery_harness.py
+  scripts/test_management.py
+  scripts/test_ops.py
+  scripts/tower_codex_bridge.py
+  scripts/tower_ctl.py                         #attach / #leave / desktop routing
+  scripts/tower_diagnostics.py
+  scripts/tower_dsh.py
+  scripts/tower_dsh_bridge.py
+  scripts/tower_harness.py
+  scripts/tower_runtime.py
+  scripts/tower_store.py
+  scripts/tower_sync.py
+  scripts/tower_ui.py
+
+Removed files
+~~~~~~~~~~~~~
+
+  None.
+
+Upstream documentation files not carried over
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The upstream baseline contains macOS-only walkthroughs and screenshot assets under
+docs/testing/. Those files are left in the upstream repository rather than copied
+here. They are not part of this repository and no claim is made about them.
+
+Scope and exclusions
+--------------------
+
+This repository contains templates and code only. It does not contain, and must
+not contain:
+
+  - Feishu app credentials (app_id / app_secret) or bot tokens
+  - Local configuration instances (config/ctl.conf, config/stream.conf,
+    config/feishu-app.json, config/dsh-host.json)
+  - Runtime state, logs, delivery queues, or received images
+  - Session transcripts, conversation IDs, or task titles from any real machine
+  - Screenshots containing personal or organizational content
+
+Users generate their own local configuration from the provided .example templates.
+See the repository structure section in README.md.
+
+No warranty
+-----------
+
+This repository is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR
+CONDITIONS OF ANY KIND, either express or implied, as set out in the Apache
+License, Version 2.0. This software can control AI agent sessions on the host
+machine; read the security notes in README.md and authorize only what you intend
+to allow.

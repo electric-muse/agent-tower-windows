@@ -1,0 +1,10 @@
+# Direct dependency versions validated by the offline suite (2026-09-19).
+lark-oapi==1.7.3
+requests==2.34.2
+setproctitle==1.3.7
+
+# Python 3.14+ uses stdlib compression.zstd.
+backports.zstd>=1.0,<2; python_version < "3.14"
+
+# Native DSH Host event stream.
+websockets==15.0.1

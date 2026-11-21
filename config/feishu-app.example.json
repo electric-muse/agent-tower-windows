@@ -1,0 +1,8 @@
+{
+  "_说明": "复制为 feishu-app.json 填入真实值(该文件已被.gitignore排除, 不会入库)",
+  "_获取": "飞书开放平台 open.feishu.cn -> 创建企业自建应用 -> 凭证与基础信息 拿 app_id/app_secret; chat_id: 把机器人拉进群发送 #help，从机器人的未授权回复获取",
+  "_权限": "应用需开通 im:message(收发消息)、im:chat(群信息)、im:message.group_msg(接收群内普通消息，敏感权限), 并开启'事件订阅-使用长连接接收事件' + 卡片回调(流式卡片 im:resource)",
+  "app_id": "cli_xxxxxxxxxxxxx",
+  "app_secret": "REPLAC……xxxx",
+  "chat_id": "oc_xxxxxxxxxxxxxxxxxxxxx"
+}
