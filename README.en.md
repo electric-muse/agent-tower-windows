@@ -4,7 +4,9 @@
 
 Turn Feishu into a unified command tower for Codex, Claude Code, WorkBuddy, Qoder CLI, and DeepSeek Harness. Start jobs from a phone, watch their progress, and receive results in Feishu topics.
 
-This repository is based on [wowofighting/agent-tower](https://gitee.com/wowofighting/agent-tower) (Apache-2.0) with added Windows support. The upstream project targets macOS; see [NOTICE](NOTICE) for the list of modifications.
+This repository is based on [wowofighting/agent-tower](https://gitee.com/wowofighting/agent-tower) (Apache-2.0) with added Windows support. The upstream project targets macOS; its GitHub mirror is [zouxuyang/agent-tower](https://github.com/zouxuyang/agent-tower). See [NOTICE](NOTICE) for the list of modifications.
+
+This project is published in two places with identical content: GitHub ([electric-muse/agent-tower-windows](https://github.com/electric-muse/agent-tower-windows)) and Gitee ([june-zheng/agent-tower-windows](https://gitee.com/june-zheng/agent-tower-windows)).
 
 ## Platform status
 
@@ -23,7 +25,11 @@ Desktop control adds `#attach`, `#sessions`, `#status`, and `#leave`, with confi
 ## Quick start on Windows
 
 ```powershell
+# GitHub
+git clone https://github.com/electric-muse/agent-tower-windows.git
+# or Gitee (faster in mainland China)
 git clone https://gitee.com/june-zheng/agent-tower-windows.git
+
 cd agent-tower-windows
 
 # 1. Create a Feishu enterprise app and enable im:message / im:chat /
@@ -41,7 +47,11 @@ full procedure and security boundaries.
 ## Quick start on macOS
 
 ```bash
-git clone https://gitee.com/june-zheng/agent-tower-windows.git ~/agent-tower-windows
+# GitHub
+git clone https://github.com/electric-muse/agent-tower-windows.git ~/agent-tower-windows
+# or Gitee
+# git clone https://gitee.com/june-zheng/agent-tower-windows.git ~/agent-tower-windows
+
 cd ~/agent-tower-windows
 
 # Create a Feishu enterprise app, enable im:message and im:chat,

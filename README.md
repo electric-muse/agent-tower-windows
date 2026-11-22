@@ -4,7 +4,9 @@
 
 > **平台状态：** 在 macOS 原版基础上增强了 Windows 支持。Windows 已适配 Codex、DSH 任务控制、指定桌面会话接管和飞书图文交互，macOS 继续使用 `launchd`。Windows 安装及验证范围见下文。
 
-本项目基于 [wowofighting/agent-tower](https://gitee.com/wowofighting/agent-tower)（Apache-2.0）修改，重点是 Windows 支持与 DSH 桌面接管。上游项目只支持 macOS；上游地址见上，改动说明见 [NOTICE](NOTICE)。
+本项目基于 [wowofighting/agent-tower](https://gitee.com/wowofighting/agent-tower)（Apache-2.0）修改，重点是 Windows 支持与 DSH 桌面接管。上游项目只支持 macOS；上游在 GitHub 的镜像为 [zouxuyang/agent-tower](https://github.com/zouxuyang/agent-tower)，改动说明见 [NOTICE](NOTICE)。
+
+本项目同时发布在两个地方，内容一致：GitHub（[electric-muse/agent-tower-windows](https://github.com/electric-muse/agent-tower-windows)）与 Gitee（[june-zheng/agent-tower-windows](https://gitee.com/june-zheng/agent-tower-windows)）。
 
 把飞书变成 Codex / Claude Code / WorkBuddy / Qoder CLI / DeepSeek Harness 的**统一指挥塔台**：从手机发指令起任务、盯进度、收结果。
 
@@ -17,7 +19,11 @@
 ## 快速开始（Windows）
 
 ```powershell
+# GitHub
+git clone https://github.com/electric-muse/agent-tower-windows.git
+# 或 Gitee（国内更快）
 git clone https://gitee.com/june-zheng/agent-tower-windows.git
+
 cd agent-tower-windows
 
 # 1. 飞书应用: open.feishu.cn 建企业自建应用, 拿 app_id/app_secret;
@@ -32,7 +38,11 @@ powershell -NoProfile -ExecutionPolicy Bypass -File scripts/setup-windows.ps1 -S
 ## 快速开始（macOS）
 
 ```bash
-git clone https://gitee.com/june-zheng/agent-tower-windows.git ~/agent-tower-windows
+# GitHub
+git clone https://github.com/electric-muse/agent-tower-windows.git ~/agent-tower-windows
+# 或 Gitee
+# git clone https://gitee.com/june-zheng/agent-tower-windows.git ~/agent-tower-windows
+
 cd ~/agent-tower-windows
 
 # 1. 飞书应用: open.feishu.cn 建企业自建应用, 拿 app_id/app_secret;
