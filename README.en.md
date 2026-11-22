@@ -135,6 +135,32 @@ The suite uses an isolated temporary directory, disables real sync, and does not
 - Delivery state is persisted for retry and diagnostics; failed payloads follow the configured retention policy.
 - Read the testing notes in [`docs/testing/`](docs/testing/) before enabling new engine integrations or recovery behavior.
 
+## Maintainer: dual-platform sync
+
+This project is hosted on both Gitee and GitHub. The maintainer working copy uses
+these remotes:
+
+| remote | URL | Protocol |
+|---|---|---|
+| `origin` | `git@gitee.com:june-zheng/agent-tower-windows.git` | SSH |
+| `github` | `https://github.com/electric-muse/agent-tower-windows.git` | HTTPS |
+| `upstream` | `https://gitee.com/wowofighting/agent-tower.git` | read-only |
+
+Push to both platforms with one command:
+
+```bash
+git push-both        # same as: git push origin HEAD && git push github HEAD
+```
+
+That alias comes from the maintainer's global git configuration
+(`git config --global alias.push-both`). It is not part of this repository and
+ordinary users do not need it.
+
+Note on GitHub connectivity: on the maintainer's machine, DNS resolution for
+`github.com` returns unusable addresses, so the host is pinned to a verified
+address in the `hosts` file. If `git push github` times out, run
+`Resolve-DnsName github.com` and update the GitHub section of `hosts`.
+
 ## License
 
 Apache-2.0. See [LICENSE](LICENSE). This repository is based on

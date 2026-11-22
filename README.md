@@ -394,6 +394,26 @@ HTTP 诊断只留机器错误码/请求 ID；默认不保存通知原始载荷�
 
 旧 webhook 模式的助手消息也通过持久投递队列，遵循暂停与三种模式，并完整分卡；每片成功后保存本地确认，不创建回复路由。webhook不支持服务端幂等 token，响应不确定时重试仍可能重复，应用模式使用原有幂等投递。分卡长度在首次事件落盘时冻结，热改 max_len 不会改变已开始投递事件的分片身份。新用户回合不能证明旧回合完成，没有原生结束信号的旧正文只作为“未确认结束”摘要。
 
+## 维护者：双平台同步
+
+本项目同时托管在 Gitee 与 GitHub。维护者工作副本的 remote 约定：
+
+| remote | 地址 | 协议 |
+|---|---|---|
+| `origin` | `git@gitee.com:june-zheng/agent-tower-windows.git` | SSH |
+| `github` | `https://github.com/electric-muse/agent-tower-windows.git` | HTTPS |
+| `upstream` | `https://gitee.com/wowofighting/agent-tower.git` | 只读 |
+
+一条命令推送两个平台：
+
+```bash
+git push-both        # 等价于 git push origin HEAD && git push github HEAD
+```
+
+该别名由维护者本机全局配置提供（`git config --global alias.push-both`），不属于仓库内容，普通使用者无需配置。
+
+GitHub 侧的网络说明：本机 DNS 对 `github.com` 的解析结果不可用，需在 `hosts` 中固定为实测可用的地址，否则 HTTPS 连接超时。若 `git push github` 报连接超时，先执行 `Resolve-DnsName github.com` 确认解析值，再更新 `hosts` 中的 GitHub 段。
+
 ## 许可
 
 Apache-2.0，见 [LICENSE](LICENSE)。本项目基于 [wowofighting/agent-tower](https://gitee.com/wowofighting/agent-tower) 修改，改动清单见 [NOTICE](NOTICE)。
